@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/frostehhh/opencode-summary/compare/v0.1.0...v0.1.1) (2026-11-07)
+
+
+### Bug Fixes
+
+* ship precompiled TUI entry so npm installs load ([3303170](https://github.com/frostehhh/opencode-summary/commit/3303170bdec3846600d4c58232761ae1410f3097))
+
 ## 0.1.0 (2026-11-07)
 
 
