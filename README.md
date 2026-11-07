@@ -1,6 +1,7 @@
 # opencode-summary
 
 [![CI](https://github.com/frostehhh/opencode-summary/actions/workflows/ci.yml/badge.svg)](https://github.com/frostehhh/opencode-summary/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/opencode-summary.svg)](https://www.npmjs.com/package/opencode-summary)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 TUI plugin for [opencode](https://opencode.ai) V2. `/summary` opens a modal that generates and shows a summary of the
@@ -10,20 +11,31 @@ it was made.
 
 ## Install
 
-Add the plugin to your TUI config (`cli.json`), since it is a TUI-only plugin:
+### From npm (recommended)
 
-```json
-{ "plugins": ["github:frostehhh/opencode-summary#v0.1.0"] }
+```sh
+opencode plugin add opencode-summary
 ```
 
-Or install it with the CLI:
+Or add it to your TUI config (`cli.json`) yourself, since it is a TUI-only plugin:
+
+```json
+{ "plugins": ["opencode-summary"] }
+```
+
+Pin a version with `opencode-summary@0.1.0`. Without a version, opencode checks for updates; run
+`opencode plugin update opencode-summary` to update.
+
+### From GitHub
 
 ```sh
 opencode plugin add github:frostehhh/opencode-summary#v0.1.0
 ```
 
 Replace `v0.1.0` with the [release](https://github.com/frostehhh/opencode-summary/releases) you want. Omit the `#tag`
-to follow the default branch. Restart opencode afterwards.
+to follow the default branch.
+
+Restart opencode after installing.
 
 ### Local development
 
