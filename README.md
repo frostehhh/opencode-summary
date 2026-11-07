@@ -143,7 +143,10 @@ version and `fix` bumps the patch.
 
 1. Merge changes to `main` using conventional commits.
 2. release-please opens or updates a "chore(main): release x.y.z" PR with the version bump and `CHANGELOG.md`.
-3. Merge that PR: it creates the `vX.Y.Z` tag and a GitHub Release.
+3. Merge that PR: it creates the `vX.Y.Z` tag and a GitHub Release, then publishes to npm with
+   [trusted publishing](https://docs.npmjs.com/trusted-publishers) (no token).
+
+Coding agents can follow [`.agents/skills/release/SKILL.md`](.agents/skills/release/SKILL.md) for this flow.
 
 Repository setting required once: **Settings → Actions → General → "Allow GitHub Actions to create and approve pull
 requests"**.
