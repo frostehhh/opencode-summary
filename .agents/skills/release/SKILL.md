@@ -32,12 +32,11 @@ git commit --allow-empty -m "chore: release 0.2.0" -m "Release-As: 0.2.0"
 
 ## Before merging code that changes the TUI
 
-`dist/tui.js` is committed and shipped (opencode cannot compile `.tsx` inside `node_modules`). After editing `src/`, run `bun run build` with Bun 1.3.11 and commit `dist/` in the same change. CI fails on any `dist` diff, and a different Bun version produces different output.
+`dist/tui.js` is shipped in the npm package (opencode cannot compile `.tsx` inside `node_modules`) but is not committed. CI and the publish job build it with `bun run build`; nothing to commit.
 
 ## When it fails
 
 - `publish` job, `403 ... OIDC permission denied`: npm trusted publisher mismatch. On npmjs.com the config must be GitHub Actions, owner `frostehhh`, repo `opencode-summary`, workflow `release-please.yml`, environment blank, and the allowed actions must include `npm publish` (stage-only rejects it). After fixing it, re-run only the failed job: `gh run rerun <run-id> --failed`. The tag and release stay as they are.
-- `dist` diff in CI: rebuild with Bun 1.3.11 and commit it.
 - Wrong version or tag name: check `release-please-config.json` (`include-component-in-tag` is `false`, `include-v-in-tag` is `true`) and use `Release-As`.
 - Release PR missing after a `feat`/`fix`: re-run the release-please run, and check Settings -> Actions allows creating pull requests.
 
