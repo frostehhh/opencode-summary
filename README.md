@@ -11,8 +11,6 @@ it was made.
 
 ## Install
 
-### From npm (recommended)
-
 ```sh
 opencode plugin add opencode-summary
 ```
@@ -26,27 +24,7 @@ Or add it to your TUI config (`cli.json`) yourself, since it is a TUI-only plugi
 Pin a version with `opencode-summary@0.1.0`. Without a version, opencode checks for updates; run
 `opencode plugin update opencode-summary` to update.
 
-### From GitHub
-
-```sh
-opencode plugin add github:frostehhh/opencode-summary#v0.1.0
-```
-
-Replace `v0.1.0` with the [release](https://github.com/frostehhh/opencode-summary/releases) you want. Omit the `#tag`
-to follow the default branch.
-
 Restart opencode after installing.
-
-### Local development
-
-Clone the repo and symlink it into the global plugin directory, where the TUI discovers it:
-
-```sh
-git clone https://github.com/frostehhh/opencode-summary
-ln -s "$PWD/opencode-summary" ~/.config/opencode/plugins/opencode-summary
-```
-
-Edits hot-reload in a running TUI.
 
 ## Usage
 
@@ -106,9 +84,8 @@ bun run build   # compiles src/tui.tsx -> dist/tui.js
 ```
 
 opencode does not compile `.tsx` files inside `node_modules`, so the package ships the compiled `dist/tui.js`
-(`exports["./tui"]`). `dist/` is committed so `github:` installs work, and CI fails if it is out of date: run
-`bun run build` (Bun 1.3.11, the version CI pins, so output is identical) and commit `dist/` together with your `src/` change. For local development, the symlink points at the
-repo, so use `dist/tui.js` via `bun run build`, or point your plugin config at `src/tui.tsx` directly.
+(`exports["./tui"]`). `dist/` is committed and CI fails if it is out of date: run
+`bun run build` (Bun 1.3.11, the version CI pins, so output is identical) and commit `dist/` together with your `src/` change.
 
 `src/lib.ts` is pure and must not import opencode packages; `test/lib.test.ts` covers it. `src/tui.tsx` is checked
 manually with the checklist below.
