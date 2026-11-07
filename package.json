@@ -1,0 +1,38 @@
+{
+  "name": "opencode-summary",
+  "version": "0.0.0",
+  "description": "opencode TUI plugin: generate and view a summary of the current session",
+  "license": "MIT",
+  "type": "module",
+  "author": "frostehhh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostehhh/opencode-summary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frostehhh/opencode-summary/issues"
+  },
+  "homepage": "https://github.com/frostehhh/opencode-summary#readme",
+  "keywords": ["opencode", "opencode-plugin", "tui", "summary"],
+  "exports": {
+    "./tui": "./src/tui.tsx"
+  },
+  "files": ["src", "LICENSE", "README.md"],
+  "scripts": {
+    "test": "bun test",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "peerDependencies": {
+    "@opentui/core": ">=0.6.6",
+    "@opentui/solid": ">=0.6.6",
+    "solid-js": ">=1.9.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "husky": "^9.1.7"
+  }
+}

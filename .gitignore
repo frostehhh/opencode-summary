@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+*.log
+
+# local copies of design docs (canonical docs live in ai-tools)
+docs/
