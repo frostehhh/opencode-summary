@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/frostehhh/opencode-summary/compare/v0.1.1...v0.1.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* launch external editor through the shell on Windows ([b8298d5](https://github.com/frostehhh/opencode-summary/commit/b8298d5ca94118a4fd2c5c667dab9b6a0c94bb5a))
+
 ## [0.1.1](https://github.com/frostehhh/opencode-summary/compare/v0.1.0...v0.1.1) (2026-11-07)
 
 
