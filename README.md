@@ -103,7 +103,7 @@ bun run build   # compiles src/tui.tsx -> dist/tui.js
 
 opencode does not compile `.tsx` files inside `node_modules`, so the package ships the compiled `dist/tui.js`
 (`exports["./tui"]`). `dist/` is committed so `github:` installs work, and CI fails if it is out of date: run
-`bun run build` and commit `dist/` together with your `src/` change. For local development, the symlink points at the
+`bun run build` (Bun 1.3.11, the version CI pins, so output is identical) and commit `dist/` together with your `src/` change. For local development, the symlink points at the
 repo, so use `dist/tui.js` via `bun run build`, or point your plugin config at `src/tui.tsx` directly.
 
 `src/lib.ts` is pure and must not import opencode packages; `test/lib.test.ts` covers it. `src/tui.tsx` is checked
