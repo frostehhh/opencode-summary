@@ -1,6 +1,6 @@
 {
   "name": "opencode-summary",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "opencode TUI plugin: generate and view a summary of the current session",
   "license": "MIT",
   "type": "module",
