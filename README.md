@@ -87,20 +87,17 @@ opencode does not compile `.tsx` files inside `node_modules`, so the package shi
 (`exports["./tui"]`). `dist/` is committed and CI fails if it is out of date: run
 `bun run build` (Bun 1.3.11, the version CI pins, so output is identical) and commit `dist/` together with your `src/` change.
 
+To try your changes in opencode, symlink your clone into the global plugin directory, where the TUI discovers it:
+
+```sh
+ln -s "$PWD" ~/.config/opencode/plugins/opencode-summary
+```
+
+The plugin loads `dist/tui.js` (`exports["./tui"]`), so run `bun run build` after editing `src/`. Rebuilt output
+hot-reloads in a running TUI.
+
 `src/lib.ts` is pure and must not import opencode packages; `test/lib.test.ts` covers it. `src/tui.tsx` is checked
 manually with the checklist below.
-
-### Manual checklist
-
-- [ ] `/summary` in slash completion and palette; on home shows "Open a session first"
-- [ ] `g` shows the summary and "Generated …"; it persists after a TUI restart; `c` copies the markdown
-- [ ] Footer: `summary up to date` after `g`, then `summary N turns ago` as messages are sent
-- [ ] `g` then `esc`: footer spinner, then toast "Summary ready"; `g` mid-run shows "Already generating"
-- [ ] Revert and fork behave as described in the design docs
-- [ ] `e`/`r` only in prompt view, `c` only in summary view
-- [ ] Prompt edit with `$EDITOR` set and unset; saved file appears at the override path above; `r` removes it
-- [ ] Palette "Summary" lists all eight commands; only "Open summary modal" has `/summary`
-- [ ] Toggle footer indicator hides/shows the label and persists after restart
 
 ## Contributing
 
@@ -132,10 +129,6 @@ Coding agents can follow [`.agents/skills/release/SKILL.md`](.agents/skills/rele
 Repository setting required once: **Settings → Actions → General → "Allow GitHub Actions to create and approve pull
 requests"**.
 
-## Design docs
-
-The design, plan and research for this plugin live in the
-[`ai-tools`](https://github.com/frostehhh/ai-tools/tree/main/openspec/changes/create-opencode-summary-plugin) repo.
 
 ## License
 
