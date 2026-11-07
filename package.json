@@ -20,28 +20,43 @@
     "summary"
   ],
   "exports": {
-    "./tui": "./src/tui.tsx"
+    "./tui": "./dist/tui.js"
   },
   "files": [
+    "dist",
     "src",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
+    "build": "bun scripts/build.ts",
     "test": "bun test",
+    "prepublishOnly": "bun run build && bun test",
     "prepare": "husky"
   },
-  "dependencies": {
-    "@opencode/plugin": "latest"
-  },
   "peerDependencies": {
-    "@opentui/core": ">=0.6.6",
-    "@opentui/solid": ">=0.6.6",
-    "solid-js": ">=1.9.0"
+    "@opentui/core": "",
+    "@opentui/solid": "",
+    "solid-js": ""
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
-    "husky": "^9.1.7"
+    "@opencode/plugin": "^2.2.6",
+    "@opentui/core": "^0.8.3",
+    "@opentui/solid": "^0.8.3",
+    "husky": "^9.1.7",
+    "solid-js": "^1.9.18"
+  },
+  "peerDependenciesMeta": {
+    "@opentui/core": {
+      "optional": true
+    },
+    "@opentui/solid": {
+      "optional": true
+    },
+    "solid-js": {
+      "optional": true
+    }
   }
 }

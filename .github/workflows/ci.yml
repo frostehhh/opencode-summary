@@ -13,6 +13,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - run: bun test
+      - name: Check dist is up to date
+        run: |
+          bun run build
+          git diff --exit-code -- dist
   commitlint:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
