@@ -123,9 +123,12 @@ export default Plugin.define({
     }
 
     function spawnEditor(command: string, file: string): Promise<void> {
-      const [bin, ...args] = command.split(" ")
       return new Promise((resolve, reject) => {
-        const child = spawn(bin!, [...args, file], { stdio: "inherit" })
+        // On Windows, editors like `code` are .cmd shims and paths often contain spaces, so run through the shell.
+        const child =
+          process.platform === "win32"
+            ? spawn(`${command} "${file}"`, { shell: true, stdio: "inherit" })
+            : spawn(command.split(" ")[0]!, [...command.split(" ").slice(1), file], { stdio: "inherit" })
         child.on("error", reject)
         child.on("exit", (code, signal) =>
           code === 0 ? resolve() : reject(new Error(`Editor exited with ${signal ? `signal ${signal}` : `code ${code}`}`)),

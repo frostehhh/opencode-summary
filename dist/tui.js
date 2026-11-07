@@ -296,9 +296,11 @@ var tui_default = Plugin.define({
       }
     }
     function spawnEditor(command, file) {
-      const [bin, ...args] = command.split(" ");
       return new Promise((resolve, reject) => {
-        const child = spawn(bin, [...args, file], {
+        const child = process.platform === "win32" ? spawn(`${command} "${file}"`, {
+          shell: true,
+          stdio: "inherit"
+        }) : spawn(command.split(" ")[0], [...command.split(" ").slice(1), file], {
           stdio: "inherit"
         });
         child.on("error", reject);

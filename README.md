@@ -93,6 +93,10 @@ This lives outside the plugin, so it survives plugin updates. A fixed line forbi
 and cannot be edited. `e` opens `$VISUAL`/`$EDITOR` on the file; if neither is set, a multi-line editor opens in the
 modal (`ctrl+s` save, `esc` cancel). `r` deletes the override.
 
+On Windows the file is at `%USERPROFILE%\.config\opencode\opencode-summary\summary.md` unless `XDG_CONFIG_HOME` is set.
+The editor command runs through the shell, so values like `notepad` or `code --wait` work; quote the executable if its
+path has spaces. Leave `VISUAL`/`EDITOR` unset to use the modal editor.
+
 ## Development
 
 ```sh
